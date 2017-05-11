@@ -10,6 +10,3 @@
 1. Change name and add/remove nav at `_config.yml`.
 2. Change `about.md`.
 
-## License
-
-This theme is released under MIT License.
