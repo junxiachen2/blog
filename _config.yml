@@ -1,7 +1,3 @@
-# # # # # # # #
-#   K i k o   #
-# # # # # # # #
-
 # Basic
 name:               "junxia chen"
 description:        "junxia's blog"
@@ -9,12 +5,8 @@ description:        "junxia's blog"
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 url:                "/"
 author:             "junxiachen"
-twitter:
-  username:         "junxiachen"
-#facebook:
-#  app_id:           1234
-#    publisher:      1234
-
+username:           "junxiachen"
+email:              "422400155@qq.com"
 # URL
 baseurl:            ""
 #baseurl:            "" #For Root Domain
