@@ -1,0 +1,48 @@
+---
+title:        "for 与 for/in"
+# jekyll-seo-tag
+description:  "for 与 for/in"
+author:       "junxiachen"
+---
+&emsp;不知道是不是很多新手同学和我一样，一直以为 **for/in** 和 **for** 的效果是一样的，区别只是 **for/in** 写起来更为省心省力。 
+ 
+&emsp;然而最近在需要同时对数组和对象分别进行遍历时，发现它们的区别还是大大的。这里会先简单介绍下 **for** 和 **for/in**，然后总结说下他们的不同以及我的看法和建议。
+
+## for
+
+``` 
+for (initialize; test; increment)
+	statement
+```
+
+&emsp;initialize、test、increment 三个表达式之间用分号分隔，它们分别负责初始化操作、循环条件判断和计数器变量的更新。这个有个简单的例子帮助我们了解 **for** 循环具体是怎么执行的，我们先来看一段具有相同作用的 **while** 循环。   
+
+```
+initialize;
+while(test){
+	statement
+	increment
+}
+```
+&emsp;从这段代码我们可以看出，首先是执行初始化 initialize ，然后根据 test 判断是否执行 statement 和 increment 。**for** 实际上也是这样的，**initizalize 表达式只在整个循环开始之前执行一次**，然后在每次小循环执行之前检测 test ，小循环执行之后进行计数器变量自增( increment )。其他很细节的东西这里不做介绍了，大家可以看买本书看看。
+
+
+## for/in
+
+```
+for (variable in objedct)
+	statement
+```
+&emsp;variable 一般是一个变量名，也可以是一个可以产生左值的表达式。 object 则是一个表达式，这个表达式的计算结果是一个对象。statement 就是大家知道的那样，一条语句或语句块。这里引用《 js权威指南 》里的说明来解释 **for/in** 的执行过程：
+
+>在执行 for/in 语句的过程中，JavaScript 解释器首先计算 object 表达式。如果表达式为 null 或者 undefined ，JavaScript 解释器将会跳过循环并执行后续的代码。如果表达式等于一个原始值，这个原始值将会转换为与之对应的包装对象（ wrap object ）。否则，expression 对象本身已经是对象了。JavaScript 会依次枚举对象的属性来执行循环。然而在每次循环之前，JavaScript 都会先计算 variable 表达式的值，并将属性名（一个字符串）赋值给他。
+
+从这段说明我们可以发现 **for/in** 与 **for** 的一个区别。**每次循环之前，JavaScript 都会先计算 variable 表达式的值，并将属性名（一个字符串）赋值给他。**这里需要特别注意一点，**for/in 循环不会遍历对象的所有属性，只有“可枚举”（ enumerable ）的属性才会遍历到**。
+
+## for vs for/in
+
+通常使用 **for 循环来遍历数组，用 for/in 来遍历对象的属性成员**。   
+在我看来，for 的用法简单比较中规中矩，浏览器支持也好，不会出错，建议大多数情况下采用 for 循环。for/in 则在遍历对象的时候使用，不过有时需要我们特别注意这个循环会将本身继承而来的可枚举属性也枚举出来。
+
+
+
