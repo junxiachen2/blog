@@ -14,6 +14,4 @@ permalink: /about/
 
 项目 PC 端是一个基于 Angular 开发的单页面应用，用到了 Semantic-ui, jQuery, Gulp 等。    
     
-个人邮箱：     
-422400155@qq.com     
-junxiachen2@gmail.com
+个人邮箱：422400155@qq.com , junxiachen2@gmail.com
